@@ -9,6 +9,8 @@ Desarrollo de un juego clasico de Triqui
 
 ## Instalacion de dependencias
 
+Si no tienes python instalador, hazlo desde la pagina oficila de python por [aqui](https://www.python.org/downloads/)
+
 Para probar el proyecto verifica que tienes python instalado desde la consola de tu sistema operativo
 
 ```shell
