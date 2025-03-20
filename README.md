@@ -35,6 +35,7 @@ Despues de tener todas las dependencias necesarias para ejecutar el proyecto sig
 
 ```shell
 git clone https://github.com/brandon-alexis/Triqui_python.git
+```
 
 > en caso contrario
 
