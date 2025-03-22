@@ -1,0 +1,46 @@
+import pygame
+from os.path import join
+
+# Configuraciones del juego
+pygame.init()
+
+# Colors
+BACKGROUND_PRIMARY = "#222222"
+BACKGROUND_SECONDARY = "#1abc9c"
+BACKGROUND_TERCIARY = "#f1c40f"
+BACKGROUND_WHITE = "#ffffff"
+BACKGROUND_BLACK = "#2c3e50"
+TEXT_PRIMARY = "#34495e"
+TEXT_SECONDARY = "#1abc9c"
+TEXT_TERCIARY = "#f1c40f"
+TEXT_WHITE = "#ffffff"
+
+# Configuraciones de ventana del juego
+WINDOW_WIDTH = 400
+WINDOW_HEIGHT = 570
+WINDOW_COLOR_BACKGROUND = BACKGROUND_PRIMARY
+FPS = 60
+
+# Configuraciones de tablero del juego
+BOARD_WIDTH = 350
+BOARD_HEIGHT = 350
+BOARD_COLOR_BACKGROUND = BACKGROUND_PRIMARY
+
+# Configuraciones de las celdas del juego
+CELL_MARGIN = 5
+CELL_SHAPE_X = "X"
+CELL_SHAPE_O = "O"
+CELL_FONT_SIZE = 100
+CELL_FONT = pygame.font.Font(join("assets", "fonts", "Doto.ttf"), CELL_FONT_SIZE)
+CELL_COLOR_BACKGROUND = BACKGROUND_BLACK
+CELL_COLOR_BACKGROUND_HOVER = TEXT_PRIMARY
+CELL_COLOR_ACTIVE = TEXT_PRIMARY
+CELL_COLOR_TEXT_X = TEXT_SECONDARY 
+CELL_COLOR_TEXT_O = TEXT_TERCIARY
+
+
+
+
+
+
+
