@@ -4,7 +4,7 @@ from os.path import join
 # Configuraciones del juego
 pygame.init()
 
-# Colors
+# Colores
 BACKGROUND_PRIMARY = "#222222"
 BACKGROUND_SECONDARY = "#1abc9c"
 BACKGROUND_TERCIARY = "#f1c40f"
@@ -15,9 +15,18 @@ TEXT_SECONDARY = "#1abc9c"
 TEXT_TERCIARY = "#f1c40f"
 TEXT_WHITE = "#ffffff"
 
+# Rutas de fuentes
+FONT_NAME_DOTO = "Doto"
+FONT_NAME_ROBOTO = "Roboto"
+FONT_PATH_DOTO = join("assets", "fonts", "Doto.ttf")
+FONT_PATH_ROBOTO = join("assets", "fonts", "Roboto.ttf")
+FONT_MARGIN = 10
+
 # Configuraciones de ventana del juego
 WINDOW_WIDTH = 400
 WINDOW_HEIGHT = 570
+WINDOW_TITLE = "Triqui"
+WINDOW_MARGIN = 25
 WINDOW_COLOR_BACKGROUND = BACKGROUND_PRIMARY
 FPS = 60
 
@@ -31,7 +40,7 @@ CELL_MARGIN = 5
 CELL_SHAPE_X = "X"
 CELL_SHAPE_O = "O"
 CELL_FONT_SIZE = 100
-CELL_FONT = pygame.font.Font(join("assets", "fonts", "Doto.ttf"), CELL_FONT_SIZE)
+CELL_FONT = pygame.font.Font(FONT_PATH_DOTO, CELL_FONT_SIZE)
 CELL_COLOR_BACKGROUND = BACKGROUND_BLACK
 CELL_COLOR_BACKGROUND_HOVER = TEXT_PRIMARY
 CELL_COLOR_ACTIVE = TEXT_PRIMARY
