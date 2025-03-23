@@ -10,7 +10,7 @@ class Cell:
         self.shape = None
         self.font = CELL_FONT
     
-    def draw(self, container):
+    def draw(self, container: pygame.Surface):
        pygame.draw.rect(container, self.color, self.rect) 
        
        if self.shape != None:
@@ -27,6 +27,10 @@ class Cell:
         if self.shape == None:
             self.shape = shape
             self.color = CELL_COLOR_ACTIVE
+            return True
+        
+        return False
+    
             
     def hover(self):
         if self.shape == None:
