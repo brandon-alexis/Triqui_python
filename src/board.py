@@ -10,7 +10,7 @@ class Board:
         self.color = BOARD_COLOR_BACKGROUND
         self.board = []
         self.size = size
-        self.cell_size = self.rect.width / self.size 
+        self.cell_size = (self.rect.width - (self.size - 1) * CELL_MARGIN) / self.size
         self.turn = CELL_SHAPE_X
         self.is_full = True
         self.winner = None
