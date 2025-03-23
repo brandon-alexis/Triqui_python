@@ -1,5 +1,6 @@
 import pygame, sys
 from board import Board
+from ui.top_row import TopRow
 from settings import *
 
 class Game:
@@ -16,30 +17,24 @@ class Game:
         self.setup()
         
         self.board = Board((self.WINDOW_WIDTH / 2), self.WINDOW_HEIGHT / 2, size=3)
+        self.top_row = TopRow(WINDOW_MARGIN, WINDOW_MARGIN, self.WINDOW_WIDTH - WINDOW_MARGIN * 2, 70, self.board.turn)
         
     def setup(self):
-        pygame.display.set_caption("Game")
+        pygame.display.set_caption(WINDOW_TITLE)
     
     def run(self):
         while self.running:
             self.window.fill(self.color) 
             self.dt = self.clock.tick(self.fps) / 1000
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    self.stop()     
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    x, y = pygame.mouse.get_pos()
-                    
-                    for row in self.board.board:
-                        for cell in row:
-                            if cell.rect.collidepoint(x, y):
-                                cell.click(self.board.turn)   
-                                self.board.change_turn()   
+            
+            self.check_events()  
                                 
             self.board.draw(self.window)
             self.board.update() 
             self.board.check_winner(CELL_SHAPE_X)
             self.board.check_winner(CELL_SHAPE_O)
+            self.top_row.draw(self.window)
+           
             
             if self.board.winner != None:
                 if self.board.winner == CELL_SHAPE_X or self.board.winner == CELL_SHAPE_O: 
@@ -57,3 +52,18 @@ class Game:
         
     def reset(self):
         self.board.reset()
+        
+    def check_events(self):
+        for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.stop()     
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    x, y = pygame.mouse.get_pos()
+                    
+                    for row in self.board.board:
+                        for cell in row:
+                            if cell.rect.collidepoint(x, y):
+                                if cell.click(self.board.turn):
+                                    self.board.change_turn() 
+                                
+                        
