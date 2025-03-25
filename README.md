@@ -29,6 +29,11 @@ Verifica si tienes pip instalado desde la console de tu sistema operativo
 pip --version
 ```
 
+Ahora instala la libreria de pygame de la siguiente manete
+```shell
+pip install pygame-ce
+```
+
 ## Ejecutar
 
 Despues de tener todas las dependencias necesarias para ejecutar el proyecto sigue los siguiente pasos:
