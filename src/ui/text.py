@@ -17,7 +17,7 @@ class Text:
         if self.font == None:
             if self.font_name == FONT_NAME_DOTO:
                 self.font = pygame.font.Font(FONT_PATH_DOTO, self.size)
-            if self.font_name == FONT_NAME_ROBOTO:
+            elif self.font_name == FONT_NAME_ROBOTO:
                 self.font = pygame.font.Font(FONT_PATH_ROBOTO, self.size)
 
             if self.surface == None:    
@@ -26,6 +26,6 @@ class Text:
     def draw(self, container: pygame.Surface):
         container.blit(self.surface, (self.x, self.y - self.surface.get_height() / 2))
     
-    def set_text(self, text):
+    def update(self, text):
         self.text = text
         
