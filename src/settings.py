@@ -4,7 +4,7 @@ from os.path import join
 # Configuraciones del juego
 pygame.init()
 
-# Colores
+# Configuracion de colores del juego
 BACKGROUND_PRIMARY = "#222222"
 BACKGROUND_SECONDARY = "#1abc9c"
 BACKGROUND_TERCIARY = "#f1c40f"
@@ -15,12 +15,20 @@ TEXT_SECONDARY = "#1abc9c"
 TEXT_TERCIARY = "#f1c40f"
 TEXT_WHITE = "#ffffff"
 
-# Rutas de fuentes
+# Configuraciones de fuentes del juego
 FONT_NAME_DOTO = "Doto"
 FONT_NAME_ROBOTO = "Roboto"
 FONT_PATH_DOTO = join("assets", "fonts", "Doto.ttf")
 FONT_PATH_ROBOTO = join("assets", "fonts", "Roboto.ttf")
 FONT_MARGIN = 10
+
+# Configuraciones de botones del juego
+BUTTON_COLOR_BACKGROUND = BACKGROUND_WHITE
+BUTTON_COLOR_BACKGROUND_HOVER = TEXT_PRIMARY
+BUTTON_COLOR_TEXT = TEXT_PRIMARY
+BUTTON_COLOR_TEXT_HOVER = BACKGROUND_WHITE
+BUTTON_FONT_SIZE = 20
+BUTTON_FONT = pygame.font.Font(FONT_PATH_DOTO, BUTTON_FONT_SIZE)
 
 # Configuraciones de ventana del juego
 WINDOW_WIDTH = 400
