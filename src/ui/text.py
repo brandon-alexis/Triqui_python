@@ -28,4 +28,5 @@ class Text:
     
     def update(self, text):
         self.text = text
+        self.surface = self.font.render(self.text, True, self.color)
         

@@ -9,7 +9,7 @@ class TurnBox:
         self.rect.center = (x, y)
         self.color = color
         self.turn = turn
-        self.ui_text = Text(self.rect.left + FONT_MARGIN, y, FONT_NAME_ROBOTO, "Turn", 20, TEXT_WHITE)
+        self.ui_text = Text(self.rect.left + FONT_MARGIN, y, FONT_NAME_ROBOTO, "Turno", 20, TEXT_WHITE)
         self.ui_turn = Text(self.rect.left + self.ui_text.surface.get_width() + FONT_MARGIN * 1.5, y, FONT_NAME_ROBOTO, self.turn, 20, TEXT_WHITE)
         
     def draw(self, container: pygame.Surface):
@@ -18,8 +18,8 @@ class TurnBox:
         self.ui_text.draw(container)
         self.ui_turn.draw(container)
         
-    def update(self, turn): 
-        self.turn = turn 
+    def update(self, new_turn): 
+        self.turn = new_turn 
         self.ui_turn.update(self.turn)
         
         

@@ -25,6 +25,16 @@ class Game:
         
     def setup(self):
         pygame.display.set_caption(WINDOW_TITLE) 
+        
+    def draw(self):
+        self.board.update()
+        self.turn_box.update(self.board.turn)
+    
+    def update(self):
+        self.board.draw(self.window) 
+        self.shapes_box.draw(self.window)
+        self.turn_box.draw(self.window)
+        self.reset_button.draw(self.window)
     
     def run(self):
         while self.running: 
@@ -35,15 +45,12 @@ class Game:
             self.check_events()  
             
             # Update
-            self.board.draw(self.window) 
-            self.shapes_box.draw(self.window)
-            self.turn_box.draw(self.window)
-            self.reset_button.draw(self.window)
-            
+            self.update()
+                        
             # Draw
-            self.board.update()
-            self.turn_box.update(self.turn_box)
-            
+            self.draw()
+
+                        
             # Check winner
             self.board.check_winner(CELL_SHAPE_X) 
             self.board.check_winner(CELL_SHAPE_O) 
