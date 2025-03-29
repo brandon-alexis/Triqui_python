@@ -20,7 +20,7 @@ class Game:
         
         self.board = Board((self.WINDOW_WIDTH / 2), self.WINDOW_HEIGHT / 2, size=3)
         self.shapes_box = ShapesBox(WINDOW_MARGIN, WINDOW_MARGIN * 2)
-        self.turn_box = TurnBox(self.WINDOW_WIDTH / 2, WINDOW_MARGIN * 2, 80, 40, BACKGROUND_BLACK, self.board.turn)
+        self.turn_box = TurnBox(self.WINDOW_WIDTH / 2, WINDOW_MARGIN * 2, 80, 50, BACKGROUND_BLACK, self.board.turn)
         self.reset_button = ResetButton(self.WINDOW_WIDTH - WINDOW_MARGIN, WINDOW_MARGIN, 50, 50)
         
     def setup(self):
