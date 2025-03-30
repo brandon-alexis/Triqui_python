@@ -14,6 +14,9 @@ class Board:
         self.turn = CELL_SHAPE_X
         self.is_full = True
         self.winner = None
+        self.score_x = 0
+        self.score_o = 0
+        self.score_tie = 0
         self.setup()
     
     def setup(self):
@@ -43,7 +46,6 @@ class Board:
             
     def change_turn(self):
         self.turn = CELL_SHAPE_O if self.turn == CELL_SHAPE_X else CELL_SHAPE_X
-        print(self.turn)
         
     def check_winner(self, shape):
         for row in range(self.size):
@@ -90,7 +92,22 @@ class Board:
     def reset_all(self):
         self.turn = CELL_SHAPE_X
         self.winner = None
+        self.resetAllScores()
         self.setup()
+        
+    def incrementScoreX(self):
+        self.score_x += 1
+        
+    def incrementScoreO(self):
+        self.score_o += 1
+        
+    def incrementScoreTie(self):
+        self.score_tie += 1
+        
+    def resetAllScores(self):
+        self.score_x = 0
+        self.score_o = 0
+        self.score_tie = 0
                 
                 
                 
