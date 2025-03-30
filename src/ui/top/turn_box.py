@@ -9,8 +9,8 @@ class TurnBox:
         self.rect.center = (x, y)
         self.color = color
         self.turn = turn
-        self.ui_text = Text(self.rect.left + FONT_MARGIN, y, FONT_NAME_ROBOTO, "Turno", 20, TEXT_WHITE)
-        self.ui_turn = Text(self.rect.left + self.ui_text.surface.get_width() + FONT_MARGIN * 1.5, y, FONT_NAME_ROBOTO, self.turn, 20, TEXT_WHITE)
+        self.ui_text = Text(self.rect.centerx - 40, y, FONT_NAME_ROBOTO, "Turno", 20, TEXT_WHITE)
+        self.ui_turn = Text(self.ui_text.x + self.ui_text.surface.get_width() + FONT_MARGIN, y, FONT_NAME_DOTO, self.turn, 20, TEXT_WHITE)
         
     def draw(self, container: pygame.Surface):
         pygame.draw.rect(container, self.color, self.rect)
