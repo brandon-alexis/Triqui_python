@@ -3,6 +3,8 @@ from board import Board
 from ui.top.shapes_box import ShapesBox
 from ui.top.turn_box import TurnBox
 from ui.top.reset_button import ResetButton
+from ui.bottom.score import Score
+from ui.top.winner_title import WinnerTitle
 from settings import *
 
 class Game:
@@ -20,21 +22,34 @@ class Game:
         
         self.board = Board((self.WINDOW_WIDTH / 2), self.WINDOW_HEIGHT / 2, size=3)
         self.shapes_box = ShapesBox(WINDOW_MARGIN, WINDOW_MARGIN * 2)
-        self.turn_box = TurnBox(self.WINDOW_WIDTH / 2, WINDOW_MARGIN * 2, 80, 50, BACKGROUND_BLACK, self.board.turn)
+        self.turn_box = TurnBox(self.WINDOW_WIDTH / 2, WINDOW_MARGIN * 2, 100, 50, BACKGROUND_BLACK, self.board.turn)
         self.reset_button = ResetButton(self.WINDOW_WIDTH - WINDOW_MARGIN, WINDOW_MARGIN, 50, 50)
+        self.score_x = Score(WINDOW_MARGIN * 3, self.WINDOW_HEIGHT - 50, 100, 50, SCORE_COLOR_BACKGROUND_X, self.board.score_x, "Gano X")
+        self.score_o = Score(self.WINDOW_WIDTH - 50 - WINDOW_MARGIN, self.score_x.rect.centery, 100, 50, SCORE_COLOR_BACKGROUND_O, self.board.score_o, "Gano O")
+        self.score_tie = Score(self.WINDOW_WIDTH / 2, self.score_x.rect.centery, 100, 50, SCORE_COLOR_BACKGROUND_TIE, self.board.score_tie, "Empate")
+        self.winner_title = WinnerTitle(self.WINDOW_WIDTH, 100, (0, 0, 0), "") 
         
     def setup(self):
         pygame.display.set_caption(WINDOW_TITLE) 
         
-    def draw(self):
+    def update(self):
         self.board.update()
         self.turn_box.update(self.board.turn)
+        self.score_x.update(self.board.score_x)
+        self.score_o.update(self.board.score_o)
+        self.score_tie.update(self.board.score_tie)
     
-    def update(self):
+    def draw(self):
         self.board.draw(self.window) 
         self.shapes_box.draw(self.window)
         self.turn_box.draw(self.window)
         self.reset_button.draw(self.window)
+        self.score_x.draw(self.window)
+        self.score_o.draw(self.window)
+        self.score_tie.draw(self.window)
+        self.winner_title.draw(self.window)
+
+
     
     def run(self):
         while self.running: 
@@ -57,9 +72,16 @@ class Game:
             
             if self.board.winner != None:
                 if self.board.winner == CELL_SHAPE_X or self.board.winner == CELL_SHAPE_O: 
-                    print(f"{self.board.winner} Gano!")
+                                        
+                    self.board.incrementScoreX() if self.board.winner == CELL_SHAPE_X else None
+                    self.board.incrementScoreO() if self.board.winner == CELL_SHAPE_O else None
+                    
+                    self.winner_title.update(f"{self.board.winner} Gano!", SCORE_COLOR_BACKGROUND_X if self.board.winner == CELL_SHAPE_X else SCORE_COLOR_BACKGROUND_O)
                 else:
                     print(self.board.winner)
+                    self.board.incrementScoreTie()
+                    
+                    self.winner_title.update("Empate", SCORE_COLOR_BACKGROUND_TIE)
                     
                 self.board.reset()
             
