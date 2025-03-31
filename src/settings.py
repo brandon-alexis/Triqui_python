@@ -22,6 +22,12 @@ FONT_PATH_DOTO = join("assets", "fonts", "Doto.ttf")
 FONT_PATH_ROBOTO = join("assets", "fonts", "Roboto.ttf")
 FONT_MARGIN = 10
 
+# Configuraciones de sonidos
+SOUND_PATH_HOVER = join("assets", "sounds", "hover_cell_sound.mp3")
+SOUND_PATH_VICTORY = join("assets", "sounds", "victory.ogg")
+SOUND_PATH_RESET = join("assets", "sounds", "reset.wav")
+SOUND_VOLUME = 1
+
 # Configuraciones de botones del juego
 BUTTON_COLOR_BACKGROUND = BACKGROUND_WHITE
 BUTTON_COLOR_BACKGROUND_HOVER = TEXT_PRIMARY
@@ -54,6 +60,7 @@ CELL_COLOR_BACKGROUND_HOVER = TEXT_PRIMARY
 CELL_COLOR_ACTIVE = TEXT_PRIMARY
 CELL_COLOR_TEXT_X = TEXT_SECONDARY 
 CELL_COLOR_TEXT_O = TEXT_TERCIARY
+CELL_SOUND_HOVER = pygame.mixer.Sound(SOUND_PATH_HOVER)
 
 # Configuraciones de caja de puntajes
 SCORE_COLOR_BACKGROUND_X = BACKGROUND_SECONDARY
@@ -61,6 +68,12 @@ SCORE_COLOR_BACKGROUND_O = BACKGROUND_TERCIARY
 SCORE_COLOR_BACKGROUND_TIE = BACKGROUND_BLACK
 SCORE_COLOR_TEXT = TEXT_PRIMARY
 SCORE_FONT_SIZE = 20
+
+# Configuraciones de titulo del ganador
+WINNER_SOUND = pygame.mixer.Sound(SOUND_PATH_VICTORY) 
+
+# Configuraciones de boton de reinicio
+RESET_SOUND = pygame.mixer.Sound(SOUND_PATH_RESET)
 
 
 
