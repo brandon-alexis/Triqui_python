@@ -9,19 +9,20 @@ class WinnerTitle:
         self.color = color
         self.text = text
         self.rect = pygame.Rect(0, 0, self.width, self.height)
-        
         self.title_text = Text(self.width / 2 - 74 * 2, self.height / 2, FONT_NAME_DOTO, self.text, 74, (255, 255, 255))
-        
         self.visible = False
         self.time_visible = 0
+        self.sound = WINNER_SOUND
+        self.sound_played = False
 
-    def update(self, text, color, show_duration=2):
+    def update(self, text, color, show_duration=1.5):
         self.text = text
         self.color = color
         self.title_text.update(self.text)
         self.title_text.color = (255, 255, 255)
         self.visible = True
         self.time_visible = pygame.time.get_ticks() + show_duration * 1000
+        self.sound.play()
 
     def draw(self, container:pygame.Surface):
         if self.visible:
