@@ -17,7 +17,6 @@ class Game:
         self.running = True 
         self.clock = pygame.Clock() 
         self.fps = 60 
-        self.dt = 0 
         self.setup()
         
         self.board = Board((self.WINDOW_WIDTH / 2), self.WINDOW_HEIGHT / 2, size=3)
@@ -54,6 +53,7 @@ class Game:
     
     def run(self):
         while self.running: 
+            self.clock.tick(self.fps) 
             self.window.fill(self.color) 
             
             self.check_events()  
@@ -73,8 +73,6 @@ class Game:
             
             pygame.display.flip()
             
-            self.dt = self.clock.tick(self.fps) 
-            print(f"Fps: {self.dt}")
             
     def check_winner(self):
         if self.board.winner != None:
