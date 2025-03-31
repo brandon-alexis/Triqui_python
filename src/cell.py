@@ -9,6 +9,8 @@ class Cell:
         self.color = CELL_COLOR_BACKGROUND
         self.shape = None
         self.font = CELL_FONT
+        self.sound = CELL_SOUND_HOVER
+        self.sound_played = False
     
     def draw(self, container: pygame.Surface):
        pygame.draw.rect(container, self.color, self.rect) 
@@ -35,7 +37,14 @@ class Cell:
     def hover(self):
         if self.shape == None:
             self.color = CELL_COLOR_BACKGROUND_HOVER
+            
+            if not self.sound_played:
+                self.sound.play()
+                self.sound_played = True
+
     
     def not_hover(self):
         if self.shape == None:
             self.color = CELL_COLOR_BACKGROUND
+            
+            self.sound_played = False
