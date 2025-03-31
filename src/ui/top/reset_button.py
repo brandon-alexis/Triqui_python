@@ -13,6 +13,10 @@ class ResetButton:
         self.sound_click = RESET_SOUND
         self.sound_hover = CELL_SOUND_HOVER
         self.sound_played = False
+        self.setup()
+        
+    def setup(self):
+        self.sound_click.set_volume(0.3)
     
     def draw(self, container: pygame.Surface):
        pygame.draw.rect(container, self.color, self.rect) 

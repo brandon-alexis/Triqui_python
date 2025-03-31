@@ -14,6 +14,10 @@ class WinnerTitle:
         self.time_visible = 0
         self.sound = WINNER_SOUND
         self.sound_played = False
+        self.setup()
+        
+    def setup(self):
+        self.sound.set_volume(0.8)
 
     def update(self, text, color, show_duration=1.5):
         self.text = text
