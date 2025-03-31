@@ -42,6 +42,8 @@ WINDOW_HEIGHT = 570
 WINDOW_TITLE = "Triqui"
 WINDOW_MARGIN = 25
 WINDOW_COLOR_BACKGROUND = BACKGROUND_PRIMARY
+WINDOW_ICON_PATH = join("assets", "images", "favicon.ico")
+WINDOW_ICON = pygame.image.load(WINDOW_ICON_PATH)
 FPS = 60
 
 # Configuraciones de tablero del juego
