@@ -31,6 +31,7 @@ class Game:
         
     def setup(self):
         pygame.display.set_caption(WINDOW_TITLE) 
+        pygame.display.set_icon(WINDOW_ICON)
         
     def update(self):
         self.board.update()
@@ -55,8 +56,6 @@ class Game:
         while self.running: 
             self.window.fill(self.color) 
             
-            self.dt = self.clock.tick(self.fps) / 1000 
-            
             self.check_events()  
             
             # Update
@@ -70,7 +69,15 @@ class Game:
             self.board.check_winner(CELL_SHAPE_X) 
             self.board.check_winner(CELL_SHAPE_O) 
             
-            if self.board.winner != None:
+            self.check_winner()
+            
+            pygame.display.flip()
+            
+            self.dt = self.clock.tick(self.fps) 
+            print(f"Fps: {self.dt}")
+            
+    def check_winner(self):
+        if self.board.winner != None:
                 if self.board.winner == CELL_SHAPE_X or self.board.winner == CELL_SHAPE_O: 
                                         
                     self.board.incrementScoreX() if self.board.winner == CELL_SHAPE_X else None
@@ -78,14 +85,11 @@ class Game:
                     
                     self.winner_title.update(f"{self.board.winner} Gano!", SCORE_COLOR_BACKGROUND_X if self.board.winner == CELL_SHAPE_X else SCORE_COLOR_BACKGROUND_O)
                 else:
-                    print(self.board.winner)
                     self.board.incrementScoreTie()
                     
                     self.winner_title.update("Empate", SCORE_COLOR_BACKGROUND_TIE)
                     
                 self.board.reset()
-            
-            pygame.display.flip()
     
     def stop(self):
         self.running = False
