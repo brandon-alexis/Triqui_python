@@ -15,8 +15,6 @@ class Game:
         self.color = WINDOW_COLOR_BACKGROUND 
         self.window = pygame.display.set_mode((self.WINDOW_WIDTH, self.WINDOW_HEIGHT)) 
         self.running = True 
-        self.clock = pygame.Clock() 
-        self.fps = 60 
         self.setup()
         
         self.board = Board((self.WINDOW_WIDTH / 2), self.WINDOW_HEIGHT / 2, size=3)
@@ -53,7 +51,6 @@ class Game:
     
     def run(self):
         while self.running: 
-            self.clock.tick(self.fps) 
             self.window.fill(self.color) 
             
             self.check_events()  
